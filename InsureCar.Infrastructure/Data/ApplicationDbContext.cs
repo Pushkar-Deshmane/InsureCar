@@ -14,5 +14,16 @@ namespace InsureCar.Infrastructure.Data
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Quote> Quotes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>()
+                .HasMany(c => c.Quotes)
+                .WithOne(q => q.Customer)
+                .HasForeignKey(q => q.CustomerId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
