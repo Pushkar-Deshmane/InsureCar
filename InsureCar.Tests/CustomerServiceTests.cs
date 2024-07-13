@@ -28,16 +28,16 @@ namespace InsureCar.Tests
         {
             var customer = new Customer
             {
-                FirstName = "John",
-                LastName = "Doe",
+                FirstName = "Pushkar",
+                LastName = "Deshmane",
                 DateOfBirth = new DateTime(1980, 1, 1),
-                Address = "123 Main St"
+                Address = "123 Cork St"
             };
 
             var createdCustomer = await _customerService.CreateCustomerAsync(customer);
 
             Assert.NotNull(createdCustomer);
-            Assert.Equal("John", createdCustomer.FirstName);
+            Assert.Equal("Pushkar", createdCustomer.FirstName);
         }
 
         [Fact]
@@ -45,20 +45,20 @@ namespace InsureCar.Tests
         {
             var customer = new Customer
             {
-                FirstName = "John",
-                LastName = "Doe",
+                FirstName = "Pushkar",
+                LastName = "Deshmane",
                 DateOfBirth = new DateTime(1980, 1, 1),
-                Address = "123 Main St"
+                Address = "123 Cork St"
             };
 
             _context.Customers.Add(customer);
             await _context.SaveChangesAsync();
 
-            customer.LastName = "Smith";
+            customer.LastName = "Messi";
             await _customerService.UpdateCustomerAsync(customer);
 
             var updatedCustomer = await _context.Customers.FindAsync(customer.Id);
-            Assert.Equal("Smith", updatedCustomer.LastName);
+            Assert.Equal("Messi", updatedCustomer.LastName);
         }
 
         [Fact]
@@ -66,13 +66,13 @@ namespace InsureCar.Tests
         {
             var customer = new Customer
             {
-                FirstName = "John",
-                LastName = "Doe",
+                FirstName = "Pushkar",
+                LastName = "Deshmane",
                 DateOfBirth = new DateTime(1980, 1, 1),
-                Address = "123 Main St",
+                Address = "123 Cork St",
                 Quotes = new List<Quote>
             {
-                new Quote { CarModel = "Toyota Camry", CarYear = 2020, Price = 600 }
+                new Quote { CarModel = "BMW 330e", CarYear = 2019, Price = 600 }
             }
             };
 
