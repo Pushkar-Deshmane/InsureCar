@@ -13,6 +13,7 @@ namespace InsureCar.Core.Models
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
+        //Navigation Property
         public ICollection<Quote> Quotes { get; set; } = new List<Quote>();
     }
 }

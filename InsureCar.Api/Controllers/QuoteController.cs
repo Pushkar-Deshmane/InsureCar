@@ -15,16 +15,36 @@ namespace InsureCar.Api.Controllers
             _quoteService = quoteService;
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> CreateQuote([FromBody] Quote quote)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    var createdQuote = await _quoteService.CreateQuoteAsync(quote);
+        //    return CreatedAtAction(nameof(CreateQuote), new { id = createdQuote.Id }, createdQuote);
+        //}
+
         [HttpPost]
-        public async Task<IActionResult> CreateQuote([FromBody] Quote quote)
+        public async Task<IActionResult> CreateQuote([FromBody] CreateQuoteDto createQuoteDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var createdQuote = await _quoteService.CreateQuoteAsync(quote);
-            return CreatedAtAction(nameof(CreateQuote), new { id = createdQuote.Id }, createdQuote);
+            var quote = new Quote
+            {
+                CustomerId = createQuoteDto.CustomerId,
+                CarModel = createQuoteDto.CarModel,
+                CarYear = createQuoteDto.CarYear,
+                Price = createQuoteDto.Price
+            };
+
+            await _quoteService.CreateQuoteAsync(quote);
+            return CreatedAtAction(nameof(CreateQuote), new { id = quote.Id }, quote);
         }
 
         [HttpGet("by-car-model/{carModel}")]

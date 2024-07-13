@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace InsureCar.Core.Models
 {
-    public class Quote
+    public class CreateQuoteDto
     {
-        public int Id { get; set; }
         public int CustomerId { get; set; }
         public string CarModel { get; set; }
         public int CarYear { get; set; }
         public decimal Price { get; set; }
-        // Navigation property
-        public Customer Customer { get; set; }
     }
 }
-
