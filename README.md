@@ -36,3 +36,31 @@ InsureCar is a RESTful Web API built using .NET 8 and C# that simulates a car in
 ### Prerequisites
 1. [**.NET 8 SDK**](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 2. [**SQL Server**](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+
+## Installation
+1. **Clone the repository:**
+    ```
+    git clone https://github.com/Pushkar-Deshmane/InsureCar.git
+    cd InsureCar
+    ```
+2. **Restore dependencies:**
+
+    `dotnet restore`
+   
+4. **Update database connection string:**
+
+    Update the connection string in appsettings.json located in the InsureCar.Api project to point to your SQL Server instance.
+
+6. **Run database migrations:**
+
+   `dotnet ef migrations add InitialCreate --project InsureCar.Api`
+   
+   `dotnet ef database update --project InsureCar.Api`
+
+   (This can also be done from visual studio instead of commanf prompt using Package Manager Console and EF migration commands)
+
+7. **Run the application:**
+
+    `dotnet run --project InsureCar.Api`
+
+
