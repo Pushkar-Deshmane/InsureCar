@@ -63,4 +63,76 @@ InsureCar is a RESTful Web API built using .NET 8 and C# that simulates a car in
 
     `dotnet run --project InsureCar.Api`
 
+***Let's asuume the API will be running at https://localhost:58449. your port number could be different here***
 
+## Using Swagger
+
+Swagger is available for API documentation and testing. Open your browser and navigate to https://localhost:58449/swagger to view and test the endpoints.
+
+## Testing with Postman
+
+To test the API using Postman, follow these steps:
+
+**1. Create a Customer:**
+
+* URL: https://localhost:58449/api/customer
+* Method: POST
+* Body:
+  ```
+      {
+          "firstName": "Pushkar",
+          "lastName": "Deshmane",
+          "dateOfBirth": "1980-01-01T00:00:00Z",
+          "address": "123 Cork St"
+      }
+  ```
+
+**2. Update a Customer:**
+
+* URL: https://localhost:58449/api/customer/1
+* Method: PUT
+* Body:
+  ```
+      {
+          "id": 1,
+          "firstName": "Pushkar",
+          "lastName": "Deshmane",
+          "dateOfBirth": "1980-01-01T00:00:00Z",
+          "address": "456 Cork main St"
+      }
+  ```
+
+**3. Get Customers with Quotes Over a Certain Amount:**
+
+* URL: https://localhost:58449/api/customer/quotes-over/1000
+* Method: GET
+
+**4. Create a Quote:**
+
+* URL: https://localhost:58449/api/quote
+* Method: POST
+* Body:
+  ```
+      {
+          "customerId": 1,
+          "carModel": "BMW",
+          "carYear": 2019,
+          "price": 1500.00
+      }
+  ```
+**5. Get Quotes by Car Model:**
+
+* URL: https://localhost:58449/api/quote/car-model/BMW
+* Method: GET
+
+**6. Delete a Quote:**
+
+* URL: https://localhost:58449/api/quote/1
+* Method: DELETE
+
+## Running Unit Tests
+
+Unit tests are implemented using xUnit and Moq. To run the tests, use the following command:
+
+`dotnet test`
+        
