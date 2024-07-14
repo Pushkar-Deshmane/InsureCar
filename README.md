@@ -24,6 +24,9 @@ InsureCar is a RESTful Web API built using .NET 8 and C# that simulates a car in
 * Address: string
 * Quotes: ICollection<Quote> (Navigation property)
 
+![Screenshot of Customer Model](https://github.com/Pushkar-Deshmane/InsureCar/blob/master/InsureCar.Api/img/Customer%20Model.PNG "Customer Model")
+
+
 ### Quote
 * Id: int
 * CustomerId: int (foreign key to Customer)
@@ -31,6 +34,9 @@ InsureCar is a RESTful Web API built using .NET 8 and C# that simulates a car in
 * CarYear: int
 * Price: decimal
 * Customer: Customer (Navigation Property)
+
+![Screenshot of Quote Model](https://github.com/Pushkar-Deshmane/InsureCar/blob/master/InsureCar.Api/img/quote%20Model.PNG "Quote Model")
+
 
 ## Getting Started
 ### Prerequisites
@@ -63,11 +69,11 @@ InsureCar is a RESTful Web API built using .NET 8 and C# that simulates a car in
 
     `dotnet run --project InsureCar.Api`
 
-***Let's asuume the API will be running at https://localhost:58449. your port number could be different here***
+***Let's asuume the API will be running at https://localhost:44385. your port number could be different here***
 
 ## Using Swagger
 
-Swagger is available for API documentation and testing. Open your browser and navigate to https://localhost:58449/swagger to view and test the endpoints.
+Swagger is available for API documentation and testing. Open your browser and navigate to https://localhost:44385/swagger to view and test the endpoints.
 
 ## Testing with Postman
 
@@ -75,7 +81,7 @@ To test the API using Postman, follow these steps:
 
 **1. Create a Customer:**
 
-* URL: https://localhost:58449/api/customer
+* URL: https://localhost:44385/api/customer
 * Method: POST
 * Body:
   ```
@@ -89,7 +95,7 @@ To test the API using Postman, follow these steps:
 
 **2. Update a Customer:**
 
-* URL: https://localhost:58449/api/customer/1
+* URL: https://localhost:44385/api/customer/1
 * Method: PUT
 * Body:
   ```
@@ -104,12 +110,12 @@ To test the API using Postman, follow these steps:
 
 **3. Get Customers with Quotes Over a Certain Amount:**
 
-* URL: https://localhost:58449/api/customer/quotes-over/1000
+* URL: https://localhost:44385/api/customer/quotes-over/1000
 * Method: GET
 
 **4. Create a Quote:**
 
-* URL: https://localhost:58449/api/quote
+* URL: https://localhost:44385/api/quote
 * Method: POST
 * Body:
   ```
@@ -122,12 +128,12 @@ To test the API using Postman, follow these steps:
   ```
 **5. Get Quotes by Car Model:**
 
-* URL: https://localhost:58449/api/quote/car-model/BMW
+* URL: https://localhost:44385/api/quote/car-model/BMW
 * Method: GET
 
 **6. Delete a Quote:**
 
-* URL: https://localhost:58449/api/quote/1
+* URL: https://localhost:44385/api/quote/1
 * Method: DELETE
 
 ## Running Unit Tests
@@ -135,4 +141,14 @@ To test the API using Postman, follow these steps:
 Unit tests are implemented using xUnit and Moq. To run the tests, use the following command:
 
 `dotnet test`
-        
+
+## Possible Improvements
+
+We can implement UnitOfWork in this .NET API Application to make it decoupled
+
+## Resources Used
+
+* [https://www.w3schools.com/cs/cs_interface.php](https://www.w3schools.com/cs/cs_interface.php)
+* [https://try.stackoverflow.co/explore-teams?utm_source=adwords&utm_medium=ppc&utm_campaign=kb_teams_search_brand_emea-dach&_bt=657236278306&_bk=stack+overflow&_bm=p&_bn=g&gad_source=1&gclid=CjwKCAjw7s20BhBFEiwABVIMrdrlIgI9WvCXtGyRvt3BPxIitKRkTyhuT6qNaz3kKVRH9pY33ITZTRoCSqAQAvD_BwE](https://try.stackoverflow.co/explore-teams?utm_source=adwords&utm_medium=ppc&utm_campaign=kb_teams_search_brand_emea-dach&_bt=657236278306&_bk=stack+overflow&_bm=p&_bn=g&gad_source=1&gclid=CjwKCAjw7s20BhBFEiwABVIMrdrlIgI9WvCXtGyRvt3BPxIitKRkTyhuT6qNaz3kKVRH9pY33ITZTRoCSqAQAvD_BwE)
+* [https://www.udemy.com/certificate/UC-c6422dad-f7d5-43e8-9c64-3103714dd2f1/](https://www.udemy.com/certificate/UC-c6422dad-f7d5-43e8-9c64-3103714dd2f1/)
+     
